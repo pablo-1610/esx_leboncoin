@@ -57,6 +57,9 @@ AddEventHandler("esx_leboncoin:buyOffer", function(plate, authorLicense)
         end
     end)
 end)
+local function getDate()
+    return os.date("*t", os.time()).day.."/"..os.date("*t", os.time()).month.."/"..os.date("*t", os.time()).year.." à "..os.date("*t", os.time()).hour.."h"..os.date("*t", os.time()).min
+end
 
 RegisterNetEvent("esx_leboncoin:publishOffer")
 AddEventHandler("esx_leboncoin:publishOffer", function(plate, builder)
@@ -73,7 +76,7 @@ AddEventHandler("esx_leboncoin:publishOffer", function(plate, builder)
                     ['c'] = builder.description,
                     ['d'] = savedData.vehicle,
                     ['e'] = builder.price,
-                    ['f'] = os.time(),
+                    ['f'] = getDate(),
                     ['g'] = savedData.plate
                 }, function(insertId)
                     TriggerClientEvent("esx_leboncoin:serverReturnStatus", source, 1)
