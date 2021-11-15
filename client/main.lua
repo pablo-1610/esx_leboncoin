@@ -1,12 +1,7 @@
-ESX = nil
 canInteract = true
 
 
 Citizen.CreateThread(function()
-    TriggerEvent("esx:getSharedObject", function(obj)
-        ESX = obj
-    end)
-    while ESX == nil do Wait(1) end
     -- Initialisation du blip
     local blip = AddBlipForCoord(Config.position.x, Config.position.y, Config.position.z)
     SetBlipSprite(blip, 478)
